@@ -86,37 +86,6 @@ class Die //models one single dice cube
     diceColor();
     rect(myX, myY, 40, 40, 10);
     fill (#2E3639);
-    
-    //if(dotNum ==1)
-    //{
-    //  oneDot();
-    //  dotNum = dotNum +1;
-    //}
-    //  else if (dotNum == 2)
-    //  {
-    //    twoDots();
-    //    dotNum = dotNum +2;
-    //  }
-    //  else if (dotNum == 3)
-    //  {
-    //    threeDots();
-    //    dotNum = dotNum +3;
-    //  }
-    //  else if (dotNum == 4)
-    //  {
-    //    fourDots();
-    //    dotNum = dotNum +4;
-    //  }
-    //  else if (dotNum == 5)
-    //  {
-    //    fiveDots();
-    //    dotNum = dotNum +5;
-    //  }
-    //  else if (dotNum == 6)
-    //  {
-    //    sixDots();
-    //    dotNum = dotNum +6;
-    //  }
   }
   
   void oneDot()
