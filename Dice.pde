@@ -1,59 +1,75 @@
+int dotNum;
 void setup()
 {
   noLoop();
   size(600, 600);
-  background(#398DAA);
 }
 void draw()
 { 
+  background(#398DAA);
   for(int y = 50; y <= 500; y+=50)
   {
     for (int x = 50; x <=500; x+=50)
     {
       Die marisa = new Die(x, y);
-      marisa.roll();
       marisa.show();
+      marisa.roll(); 
     }
   }
+  textSize(20);
+  text("total number of dots: " + dotNum, 190, 570);
 }
 void mousePressed()
 {
+  dotNum = 0;
   redraw();
 }
 class Die //models one single dice cube
 {
   //variable declarations here
-  boolean oneDot;
-  boolean threeDots;
-  boolean fourDots;
-  boolean fiveDots;
-  boolean sixDots;
+  int dotNum = (int)((Math.random()*6)+1);
   int myX, myY;
   Die(int x, int y) //constructor
   {
-  myX = x;
-  myY = y;
+    myX = x;
+    myY = y;
   }
   void roll()
   {
-    int dotNum = (int)((Math.random()*6)+1);
-    if(dotNum == 1)
-       oneDot = true;
-    if(dotNum == 2)
-       oneDot = false;
-    
-    if(dotNum == 3)
-       threeDots = true;
-    
-    if(dotNum == 4)
-       fourDots= true;
-       
-    if(dotNum == 5)
-       fiveDots = true;
-    
-    if(dotNum == 6)
-      sixDots = true;
+     dotNum = (int)((Math.random()*6)+1);
+     
+     if(dotNum ==1)
+    {
+      oneDot();
+      dotNum = dotNum +1;
+    }
+      else if (dotNum == 2)
+      {
+        twoDots();
+        dotNum = dotNum +2;
+      }
+      else if (dotNum == 3)
+      {
+        threeDots();
+        dotNum = dotNum +3;
+      }
+      else if (dotNum == 4)
+      {
+        fourDots();
+        dotNum = dotNum +4;
+      }
+      else if (dotNum == 5)
+      {
+        fiveDots();
+        dotNum = dotNum +5;
+      }
+      else if (dotNum == 6)
+      {
+        sixDots();
+        dotNum = dotNum +6;
+      }
   }
+  
   void diceColor()
   {
     int colors = (int)((Math.random()*2)+1);
@@ -71,23 +87,36 @@ class Die //models one single dice cube
     rect(myX, myY, 40, 40, 10);
     fill (#2E3639);
     
-    if (oneDot == true)
-      oneDot();
-    if (oneDot == false)
-      twoDots();
-        
-    if(threeDots == true)
-      threeDots();
-    
-    if(fourDots == true)
-      fourDots();
-      
-    if(fiveDots == true)
-      fiveDots();
-      
-    if(sixDots == true)
-      sixDots();
-      
+    //if(dotNum ==1)
+    //{
+    //  oneDot();
+    //  dotNum = dotNum +1;
+    //}
+    //  else if (dotNum == 2)
+    //  {
+    //    twoDots();
+    //    dotNum = dotNum +2;
+    //  }
+    //  else if (dotNum == 3)
+    //  {
+    //    threeDots();
+    //    dotNum = dotNum +3;
+    //  }
+    //  else if (dotNum == 4)
+    //  {
+    //    fourDots();
+    //    dotNum = dotNum +4;
+    //  }
+    //  else if (dotNum == 5)
+    //  {
+    //    fiveDots();
+    //    dotNum = dotNum +5;
+    //  }
+    //  else if (dotNum == 6)
+    //  {
+    //    sixDots();
+    //    dotNum = dotNum +6;
+    //  }
   }
   
   void oneDot()
